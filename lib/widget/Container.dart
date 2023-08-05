@@ -10,6 +10,6 @@ class TestContainer extends StatefulWidget {
 class _TestContainerState extends State<TestContainer> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Text('TestContainer');
   }
 }
