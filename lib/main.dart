@@ -12,6 +12,33 @@ import 'widget/ScrollConfiguration.dart';
 import 'widget/NotificationListener.dart';
 import 'widget/AnimatedList.dart';
 import 'widget/CustomScrollView.dart';
+import 'widget/SliverToBoxAdapter.dart';
+
+import 'Animation/AlignTransition.dart';
+import 'Animation/AnimatedBuilder.dart';
+import 'Animation/AnimatedCrossFade.dart';
+import 'Animation/AnimatedDefaultTextStyle.dart';
+import 'Animation/AnimatedListState.dart';
+import 'Animation/AnimatedModalBarrier.dart';
+import 'Animation/AnimatedOpacity.dart';
+import 'Animation/AnimatedPhysicalModel.dart';
+import 'Animation/AnimatedPositioned.dart';
+import 'Animation/AnimatedSize.dart';
+import 'Animation/AnimatedSwitcher.dart';
+import 'Animation/AnimatedWidget.dart';
+import 'Animation/AnimatedTheme.dart';
+import 'Animation/DecoratedBoxTransition.dart';
+import 'Animation/FadeTransition.dart';
+import 'Animation/Hero.dart';
+import 'Animation/PositionedTransition.dart';
+import 'Animation/PageRouteBuilder.dart';
+import 'Animation/RotationTransition.dart';
+import 'Animation/ScaleTransition.dart';
+import 'Animation/SizeTransition.dart';
+import 'Animation/SlideTransition.dart';
+import 'Animation/Transform.dart';
+
+import 'router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +53,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+      routes: {
+        '/detail': (context) => DetailPage(),
+      },
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -46,6 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
         // appBar: AppBar(
         //   title: Text(widget.title),
         // ),
-        body: const CustomScrollViewWidget());
+        body: TransformExample());
   }
 }
