@@ -12,22 +12,26 @@ class _NotificationListenerWidgetState
     extends State<NotificationListenerWidget> {
   @override
   Widget build(BuildContext context) {
-    return NotificationListener<ScrollNotification>(
-      onNotification: (notification) {
-        print(notification);
-        if (notification is ScrollEndNotification) {
-          print('Scroll ended');
-        }
-        return true;
-      },
-      child: ListView.builder(
-        itemCount: 20,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text('Item $index'),
-          );
-        },
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('NotificationListener'),
+        ),
+        body: NotificationListener<ScrollNotification>(
+          onNotification: (notification) {
+            print(notification);
+            if (notification is ScrollEndNotification) {
+              print('Scroll ended');
+            }
+            return true;
+          },
+          child: ListView.builder(
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text('Item $index'),
+              );
+            },
+          ),
+        ));
   }
 }

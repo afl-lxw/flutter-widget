@@ -11,26 +11,30 @@ class ScrollableWidget extends StatefulWidget {
 class _ScrollableWidgetState extends State<ScrollableWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scrollable(
-      axisDirection: AxisDirection.down,
-      viewportBuilder: (BuildContext context, ViewportOffset offset) {
-        return CustomScrollView(
-          slivers: <Widget>[
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return ListTile(
-                    title: Text('Item $index'),
-                  );
-                },
-                childCount: 20,
-              ),
-            ),
-          ],
-          physics: AlwaysScrollableScrollPhysics(),
-          controller: ScrollController(),
-        );
-      },
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Scrollable'),
+        ),
+        body: Scrollable(
+          axisDirection: AxisDirection.down,
+          viewportBuilder: (BuildContext context, ViewportOffset offset) {
+            return CustomScrollView(
+              slivers: <Widget>[
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text('Item $index'),
+                      );
+                    },
+                    childCount: 20,
+                  ),
+                ),
+              ],
+              physics: AlwaysScrollableScrollPhysics(),
+              controller: ScrollController(),
+            );
+          },
+        ));
   }
 }

@@ -10,29 +10,33 @@ class CustomScrollViewWidget extends StatefulWidget {
 class _CustomScrollViewWidgetState extends State<CustomScrollViewWidget> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          expandedHeight: 200,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text('CustomScrollView Example'),
-            background: Image.network(
-              'https://via.placeholder.com/350x150',
-              fit: BoxFit.cover,
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('CustomScrollView'),
+        ),
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 200,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text('CustomScrollView Example'),
+                background: Image.network(
+                  'https://via.placeholder.com/350x150',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return ListTile(
-                title: Text('Item $index'),
-              );
-            },
-            childCount: 20,
-          ),
-        ),
-      ],
-    );
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return ListTile(
+                    title: Text('Item $index'),
+                  );
+                },
+                childCount: 20,
+              ),
+            ),
+          ],
+        ));
   }
 }

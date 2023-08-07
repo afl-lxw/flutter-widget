@@ -11,15 +11,19 @@ class _ScrollbarWidgetState extends State<ScrollbarWidget> {
   final List<String> items = List.generate(30, (index) => 'Item ${index + 1}');
   @override
   Widget build(BuildContext context) {
-    return Scrollbar(
-      child: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(items[index]),
-          );
-        },
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Scrollbar'),
+        ),
+        body: Scrollbar(
+          child: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(items[index]),
+              );
+            },
+          ),
+        ));
   }
 }

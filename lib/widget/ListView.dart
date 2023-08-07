@@ -38,29 +38,33 @@ class _ListViewWidgetState extends State<ListViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: todos.length,
-      itemBuilder: (context, index) {
-        return Dismissible(
-          key: Key(todos[index].title),
-          background: Container(
-            color: Colors.red,
-            child: const Align(
-              alignment: Alignment.centerRight,
-              child: Icon(
-                Icons.delete,
-                color: Colors.white,
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('ListView'),
+        ),
+        body: ListView.builder(
+          itemCount: todos.length,
+          itemBuilder: (context, index) {
+            return Dismissible(
+              key: Key(todos[index].title),
+              background: Container(
+                color: Colors.red,
+                child: const Align(
+                  alignment: Alignment.centerRight,
+                  child: Icon(
+                    Icons.delete,
+                    color: Colors.white,
+                  ),
+                ),
               ),
-            ),
-          ),
-          onDismissed: (direction) {
-            // 在这里执行删除操作
-            todos.removeAt(index);
+              onDismissed: (direction) {
+                // 在这里执行删除操作
+                todos.removeAt(index);
+              },
+              child: _ListViewTite(index),
+            );
           },
-          child: _ListViewTite(index),
-        );
-      },
-    );
+        ));
   }
 
   ListTile _ListViewTite(int index) {

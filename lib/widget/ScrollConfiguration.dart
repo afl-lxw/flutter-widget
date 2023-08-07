@@ -11,17 +11,21 @@ class ScrollConfigurationWidget extends StatefulWidget {
 class _ScrollConfigurationWidgetState extends State<ScrollConfigurationWidget> {
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: MyScrollBehavior(),
-      child: ListView.builder(
-        itemCount: 20,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text('Item $index'),
-          );
-        },
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('ScrollConfiguration'),
+        ),
+        body: ScrollConfiguration(
+          behavior: MyScrollBehavior(),
+          child: ListView.builder(
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text('Item $index'),
+              );
+            },
+          ),
+        ));
   }
 }
 

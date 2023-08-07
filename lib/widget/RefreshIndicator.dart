@@ -20,15 +20,20 @@ class _RefreshIndicatorWidgetState extends State<RefreshIndicatorWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: _refreshData,
-      child: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(items[index]),
-          );
-        },
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('RefreshIndicator'),
+      ),
+      body: RefreshIndicator(
+        onRefresh: _refreshData,
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(items[index]),
+            );
+          },
+        ),
       ),
     );
   }

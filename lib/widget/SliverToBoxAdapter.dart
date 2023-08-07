@@ -26,6 +26,14 @@ class _SliverToBoxAdapterWidgetState extends State<SliverToBoxAdapterWidget>
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('SliverToBoxAdapter'),
+        ),
+        body: _CustomScollViewWidgetState());
+  }
+
+  CustomScrollView _CustomScollViewWidgetState() {
     return CustomScrollView(
       slivers: <Widget>[
         SliverToBoxAdapter(

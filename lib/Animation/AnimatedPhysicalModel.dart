@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class PhysicalModelExample extends StatefulWidget {
+class PhysicalModelWidget extends StatefulWidget {
+  const PhysicalModelWidget({super.key});
+
   @override
-  _PhysicalModelExampleState createState() => _PhysicalModelExampleState();
+  // ignore: library_private_types_in_public_api
+  _PhysicalModelWidgetState createState() => _PhysicalModelWidgetState();
 }
 
-class _PhysicalModelExampleState extends State<PhysicalModelExample> {
+class _PhysicalModelWidgetState extends State<PhysicalModelWidget> {
   bool _isPressed = false;
 
   void _togglePress() {
@@ -18,7 +21,7 @@ class _PhysicalModelExampleState extends State<PhysicalModelExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Physical Model Example'),
+        title: const Text('Physical Model Widget'),
       ),
       body: Center(
         child: AnimatedPhysicalModel(
