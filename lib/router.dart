@@ -36,6 +36,10 @@ import 'Animation/SizeTransition.dart';
 import 'Animation/SlideTransition.dart';
 import 'Animation/Transform.dart';
 
+import 'other/CustomShapePainter.dart';
+import 'other/DatePicker.dart';
+import 'other/CupertinoDatePicker.dart';
+
 class RollWidgetRouter {
   static const String listView = 'ListView';
   static const String gridView = 'GridView';
@@ -119,5 +123,17 @@ class AnimationWidgetRouter {
     sizeTransition: (context) => const SizeTransitionWidget(),
     slideTransition: (context) => const SlideTransitionWidget(),
     transform: (context) => TransformExample(),
+  };
+}
+
+class OtherWidgetRouter {
+  static const String shapePainterWidget = 'ShapePainterWidget';
+  static const String datePicker = 'DatePicker';
+  // static const String datePickerCupertino = 'DatePickerCupertino';
+
+  static final router = {
+    shapePainterWidget: (context) => ShapePainterWidget(),
+    datePicker: (context) => DatePickerExample(),
+    // datePickerCupertino: (context) => CupertinoDatePickerExample(),
   };
 }

@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/detail': (context) => DetailPage(),
         ...RollWidgetRouter.router,
-        ...AnimationWidgetRouter.router
+        ...AnimationWidgetRouter.router,
+        ...OtherWidgetRouter.router
       },
       home: Scaffold(body: TabBarExample()),
     );
@@ -38,7 +39,7 @@ class _TabBarExampleState extends State<TabBarExample>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -55,6 +56,15 @@ class _TabBarExampleState extends State<TabBarExample>
             ),
             Tab(
               text: 'Animation',
+            ),
+            Tab(
+              text: 'Gesture',
+            ),
+            Tab(
+              text: 'Button',
+            ),
+            Tab(
+              text: 'Other',
             ),
           ],
         ),
@@ -82,6 +92,48 @@ class _TabBarExampleState extends State<TabBarExample>
             itemBuilder: (context, index) {
               final routeName =
                   AnimationWidgetRouter.router.keys.toList()[index];
+              return ListTile(
+                title: Text(routeName),
+                onTap: () {
+                  print('routeName: $routeName');
+                  Navigator.pushNamed(context, routeName);
+                },
+              );
+            },
+          ),
+          ListView.builder(
+            itemCount: RollWidgetRouter.router.length,
+            itemBuilder: (context, index) {
+              final routeName = RollWidgetRouter.router.keys.toList()[index];
+              return ListTile(
+                title: Text(routeName),
+                onTap: () {
+                  print('routeName: $routeName');
+                  // Navigator.pushNamed(context, routeName);
+                  Navigator.of(context)
+                      .pushNamed(routeName, arguments: routeName);
+                },
+              );
+            },
+          ),
+          ListView.builder(
+            itemCount: AnimationWidgetRouter.router.length,
+            itemBuilder: (context, index) {
+              final routeName =
+                  AnimationWidgetRouter.router.keys.toList()[index];
+              return ListTile(
+                title: Text(routeName),
+                onTap: () {
+                  print('routeName: $routeName');
+                  Navigator.pushNamed(context, routeName);
+                },
+              );
+            },
+          ),
+          ListView.builder(
+            itemCount: OtherWidgetRouter.router.length,
+            itemBuilder: (context, index) {
+              final routeName = OtherWidgetRouter.router.keys.toList()[index];
               return ListTile(
                 title: Text(routeName),
                 onTap: () {
