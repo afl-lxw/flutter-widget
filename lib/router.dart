@@ -1,3 +1,5 @@
+// ---------------------------widget----------------------------------------------
+
 import 'widget/ListView.dart';
 import 'widget/GridView.dart';
 import 'widget/SingleChildScrollView.dart';
@@ -11,7 +13,7 @@ import 'widget/NotificationListener.dart';
 import 'widget/AnimatedList.dart';
 import 'widget/CustomScrollView.dart';
 import 'widget/SliverToBoxAdapter.dart';
-
+// ---------------------------Animation----------------------------------------------
 import 'Animation/AlignTransition.dart';
 import 'Animation/AnimatedBuilder.dart';
 import 'Animation/AnimatedCrossFade.dart';
@@ -35,10 +37,15 @@ import 'Animation/ScaleTransition.dart';
 import 'Animation/SizeTransition.dart';
 import 'Animation/SlideTransition.dart';
 import 'Animation/Transform.dart';
-
+// ---------------------------其他----------------------------------------------
 import 'other/CustomShapePainter.dart';
 import 'other/DatePicker.dart';
 import 'other/CupertinoDatePicker.dart';
+import 'other/viscous.dart';
+// ---------------------------btn----------------------------------------------
+import 'Button/ButtonBar.dart';
+// ---------------------------Gesture----------------------------------------------
+import 'Gesture/InkWell.dart';
 
 class RollWidgetRouter {
   static const String listView = 'ListView';
@@ -126,14 +133,28 @@ class AnimationWidgetRouter {
   };
 }
 
+class BtnWidgetRouter {
+  static const String buttonBarWidget = 'ButtonBarWidget';
+
+  static final router = {buttonBarWidget: (context) => const ButtonBarWidget()};
+}
+
+class GestureWidgetRouter {
+  static const String inWellWidget = 'InkWellWidget';
+
+  static final router = {inWellWidget: (context) => const InkWellWidget()};
+}
+
 class OtherWidgetRouter {
   static const String shapePainterWidget = 'ShapePainterWidget';
   static const String datePicker = 'DatePicker';
   // static const String datePickerCupertino = 'DatePickerCupertino';
+  static const String stickyDropletShape = 'StickyDropletShape';
 
   static final router = {
     shapePainterWidget: (context) => ShapePainterWidget(),
     datePicker: (context) => DatePickerExample(),
     // datePickerCupertino: (context) => CupertinoDatePickerExample(),
+    stickyDropletShape: (context) => StickyDropletShape()
   };
 }
